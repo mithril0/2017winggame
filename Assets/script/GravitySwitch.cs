@@ -7,18 +7,35 @@ using UnityEngine;
 public class GravitySwitch : MonoBehaviour {
 
     public GravityState State;
-    public GameObject Base;
+    public GameObject HoldingBlock;
+    public bool u = false;
+    public bool Active = true;
 
-	// Use this for initialization
-	void Start () {
-        State = GravityState.N;
-    }
-
-    void OnCollisionStay(Collision c)
+    void OnTriggerStay(Collider c)
     {
         print(c.gameObject);
-        if (true)
+
+        print("Activated");
+        
+        if (c.gameObject.GetComponent("Gravity") != null && Active)
         {
+            Gravity.State = State;
+            HoldingBlock = c.gameObject;
+            ((Behaviour)HoldingBlock.GetComponent("Gravity")).enabled = false;
+            HoldingBlock.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        }
+    }
+
+    void Update()
+    {
+        if (HoldingBlock != null && Active)
+        {
+            HoldingBlock.transform.position = transform.position + new Vector3(0, 0, HoldingBlock.transform.position.z - transform.position.z);
+        }
+
+        if (u == true)
+        {
+<<<<<<< HEAD:Assets/script/GravitySwitch.cs
             RaycastHit hit;
             if (Physics.Raycast(transform.position, (transform.position - c.gameObject.transform.position) - new Vector3(0,0, (transform.position - c.gameObject.transform.position).z), out hit)) {
 
@@ -28,6 +45,25 @@ public class GravitySwitch : MonoBehaviour {
                     Global.State = State;
                 }
             }
+=======
+            Release();
+            u = false;
+        }
+    }
+
+    void Release()
+    {
+        ((Behaviour)HoldingBlock.GetComponent("Gravity")).enabled = true;
+        Active = false;
+        
+    }
+
+    private void OnTriggerExit(Collider c)
+    {
+        if (!Active && c.gameObject == HoldingBlock) { 
+            HoldingBlock = null;
+            Active = true;
+>>>>>>> 3ef82b535d4c2ad8dce3f0ecba563b9cf53ce999:Assets/GravitySwitch.cs
         }
     }
 }
