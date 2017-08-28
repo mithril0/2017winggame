@@ -4,7 +4,8 @@ using UnityEngine;
 
 
 
-public class GravitySwitch : MonoBehaviour {
+public class GravitySwitch : MonoBehaviour
+{
 
     public GravityState State;
     public GameObject HoldingBlock;
@@ -16,7 +17,7 @@ public class GravitySwitch : MonoBehaviour {
         print(c.gameObject);
 
         print("Activated");
-        
+
         if (c.gameObject.GetComponent("Gravity") != null && Active)
         {
             Gravity.State = State;
@@ -35,17 +36,6 @@ public class GravitySwitch : MonoBehaviour {
 
         if (u == true)
         {
-<<<<<<< HEAD:Assets/script/GravitySwitch.cs
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, (transform.position - c.gameObject.transform.position) - new Vector3(0,0, (transform.position - c.gameObject.transform.position).z), out hit)) {
-
-                if (hit.collider == Base.GetComponent<Collider>())
-                {
-                    print("Activated");
-                    Global.State = State;
-                }
-            }
-=======
             Release();
             u = false;
         }
@@ -55,15 +45,15 @@ public class GravitySwitch : MonoBehaviour {
     {
         ((Behaviour)HoldingBlock.GetComponent("Gravity")).enabled = true;
         Active = false;
-        
+
     }
 
     private void OnTriggerExit(Collider c)
     {
-        if (!Active && c.gameObject == HoldingBlock) { 
+        if (!Active && c.gameObject == HoldingBlock)
+        {
             HoldingBlock = null;
             Active = true;
->>>>>>> 3ef82b535d4c2ad8dce3f0ecba563b9cf53ce999:Assets/GravitySwitch.cs
         }
     }
 }
