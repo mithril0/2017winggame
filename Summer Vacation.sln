@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Summer Vacation.Plugins", "Summer Vacation.Plugins.csproj", "{6DC871E0-86B4-6377-EAD0-1EF97664D698}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Summer Vacation", "Summer Vacation.csproj", "{A33BC729-285E-2537-0A31-C867AB6927A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Summer Vacation.Editor.Plugins", "Summer Vacation.Editor.Plugins.csproj", "{D993C1C5-D2BE-18F2-A55B-77F1C5D5A64F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DC871E0-86B4-6377-EAD0-1EF97664D698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC871E0-86B4-6377-EAD0-1EF97664D698}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC871E0-86B4-6377-EAD0-1EF97664D698}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC871E0-86B4-6377-EAD0-1EF97664D698}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A33BC729-285E-2537-0A31-C867AB6927A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A33BC729-285E-2537-0A31-C867AB6927A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A33BC729-285E-2537-0A31-C867AB6927A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A33BC729-285E-2537-0A31-C867AB6927A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D993C1C5-D2BE-18F2-A55B-77F1C5D5A64F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D993C1C5-D2BE-18F2-A55B-77F1C5D5A64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D993C1C5-D2BE-18F2-A55B-77F1C5D5A64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D993C1C5-D2BE-18F2-A55B-77F1C5D5A64F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
