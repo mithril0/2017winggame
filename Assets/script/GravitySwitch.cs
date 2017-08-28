@@ -25,7 +25,7 @@ public class GravitySwitch : MonoBehaviour {
                 if (hit.collider == Base.GetComponent<Collider>())
                 {
                     print("Activated");
-                    Gravity.State = State;
+                    Global.State = State;
                 }
             }
         }
