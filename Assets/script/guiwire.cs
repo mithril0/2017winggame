@@ -7,7 +7,7 @@ public class guiwire : MonoBehaviour {
     public void OnMouseUp()
     {
 		float a;
-        Move wire = (Move)Player.GetComponent("Move");
+        Moveplayer wire = (Moveplayer)Player.GetComponent("Moveplayer");
         wire.activewire = true;
     }
 

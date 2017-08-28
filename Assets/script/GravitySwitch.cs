@@ -20,7 +20,7 @@ public class GravitySwitch : MonoBehaviour
 
         if (c.gameObject.GetComponent("Gravity") != null && Active)
         {
-            Gravity.State = State;
+            Global.State = State;
             HoldingBlock = c.gameObject;
             ((Behaviour)HoldingBlock.GetComponent("Gravity")).enabled = false;
             HoldingBlock.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);

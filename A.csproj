@@ -84,6 +84,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Move.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -92,10 +93,13 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\ZSmartTile\Classes\ZST_MapManager.cs" />
+    <Compile Include="Assets\ZSmartTile\Components\ZST_SmartTile.cs" />
+    <Compile Include="Assets\ZSmartTile\Components\ZST_SnapToGrid.cs" />
     <Compile Include="Assets\camerafollow.cs" />
     <Compile Include="Assets\script\Gravity.cs" />
     <Compile Include="Assets\script\GravitySwitch.cs" />
-    <Compile Include="Assets\script\Move.cs" />
+    <Compile Include="Assets\script\Moveplayer.cs" />
     <Compile Include="Assets\script\PlayManager.cs" />
     <Compile Include="Assets\script\WallCreatorBlock.cs" />
     <Compile Include="Assets\script\door.cs" />
