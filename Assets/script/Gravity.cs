@@ -11,6 +11,7 @@ public static class Global
     {
         return unit * 100;
     }
+    public static bool Activated;
     public static GravityState State = GravityState.S;
     public static int IsGravitychanged = 0;
     public static GravityState LastState;

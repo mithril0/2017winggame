@@ -7,11 +7,15 @@ public class WallCreatorBlock : MonoBehaviour {
     public bool Activated = false;
 
     void OnTriggerStay(Collider c)
-    {
-        if (Input.GetKeyDown(KeyCode.Z) && c.gameObject.tag == "Player")
+    {    
+        if (c.gameObject.tag == "Player")
         {
-            Wall.SetActive(true);
-            Activated = true;
+            //활성화 애니메이션 출력
+            if (Global.Activated == true)
+            {
+                Wall.SetActive(true);
+                Activated = true;
+            }
         }
     }
 }
