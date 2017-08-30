@@ -71,7 +71,7 @@ public class newparticle : MonoBehaviour {
             {
                 for (l = 0; l <= 9; l++)
                 {
-                    particleSprite[j, k, l] = Resources.Load<Sprite>("Sprites/" + index[j] + index[k] + l.ToString());
+                    particleSprite[j, k, l] = Resources.Load<Sprite>("Textures/Particles/" + index[j] + index[k] + l.ToString());
                     //print(particleSprite[j, k, l]);
                     //print("texture/" + index[j] + index[k] + l.ToString());
                 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f99fda6d270fc45418f2d740adda5bd5
-timeCreated: 1503913056
+guid: f17bd81d7b7cafc458fd2156f861d959
+timeCreated: 1504090511
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -8,12 +8,12 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
-    borderMipMap: 1
-    mipMapFadeDistanceStart: 0
-    mipMapFadeDistanceEnd: 2
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
@@ -30,13 +30,13 @@ TextureImporter:
     filterMode: 0
     aniso: 16
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
-  spriteExtrude: 0
-  spriteMeshType: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
