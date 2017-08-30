@@ -97,6 +97,7 @@
     <Compile Include="Assets\ZSmartTile\Components\ZST_SmartTile.cs" />
     <Compile Include="Assets\ZSmartTile\Components\ZST_SnapToGrid.cs" />
     <Compile Include="Assets\camerafollow.cs" />
+    <Compile Include="Assets\script\GameManager.cs" />
     <Compile Include="Assets\script\Gravity.cs" />
     <Compile Include="Assets\script\GravitySwitch.cs" />
     <Compile Include="Assets\script\Moveplayer.cs" />
