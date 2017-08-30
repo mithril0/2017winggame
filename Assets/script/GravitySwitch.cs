@@ -54,6 +54,7 @@ public class GravitySwitch : MonoBehaviour
         {
             HoldingBlock = null;
             Active = true;
+            
         }
     }
 }

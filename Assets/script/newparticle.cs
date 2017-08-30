@@ -59,8 +59,9 @@ public class newparticle : MonoBehaviour {
     public float particleSpeed = 0.01f;
     public Vector3 v,temp;
     private SpriteRenderer spriteRenderer;
-    public Sprite[,,]particleSprite= new Sprite[4,4,11];
+    public Sprite[,,]particleSprite= new Sprite[4,4,10];
     public Renderer rend;
+    public int temp1=0, temp2=0;
     //public Sprite currentSprite;
     void Start()
     {
@@ -71,7 +72,7 @@ public class newparticle : MonoBehaviour {
             {
                 for (l = 0; l <= 9; l++)
                 {
-                    particleSprite[j, k, l] = Resources.Load<Sprite>("Textures/Particles/" + index[j] + index[k] + l.ToString());
+                    particleSprite[j, k, l] = Resources.Load<Sprite>("Sprites/" + index[j] + index[k] + l.ToString());
                     //print(particleSprite[j, k, l]);
                     //print("texture/" + index[j] + index[k] + l.ToString());
                 }
@@ -86,13 +87,13 @@ public class newparticle : MonoBehaviour {
                 v = new Vector3(0, particleSpeed, 0);
                 break;
             case GravityState.E:
-                v = new Vector3(-particleSpeed, 0, 0);
+                v = new Vector3(particleSpeed, 0, 0);
                 break;
             case GravityState.S:
                 v = new Vector3(0, -particleSpeed, 0);
                 break;
             case GravityState.W:
-                v = new Vector3(particleSpeed, 0, 0);
+                v = new Vector3(-particleSpeed, 0, 0);
                 break;
             default:
                 v = new Vector3(0, 0, 0);
@@ -107,7 +108,12 @@ public class newparticle : MonoBehaviour {
         phase += movepixel;
         if (Global.IsGravitychanged == 1)
         {
-            if (phase > 8)
+            if (temp1 == 0)
+            {
+                phase = 1;
+                print("change");
+            }
+            if (phase > 9)
             {
                 phase = 0;
                 Global.IsGravitychanged = 0;
@@ -122,29 +128,31 @@ public class newparticle : MonoBehaviour {
             //print(direction_to_number(Global.State).ToString() + " " + direction_to_number(Global.State).ToString() + " " + phase.ToString());
         else
         {
-            spriteRenderer.sprite = particleSprite[direction_to_number(Global.State), direction_to_number(Global.State), phase];
+            spriteRenderer.sprite = particleSprite[direction_to_number(Global.LastState), direction_to_number(Global.State), phase];
+            print(direction_to_number(Global.LastState).ToString()+ direction_to_number(Global.State).ToString()+phase.ToString());
         }
         //print("texture/" + Global.State.ToString() + Global.State.ToString() + phase.ToString());
         transform.position += (v * movepixel);
         movepixel = 0;
         temp = transform.position;
-        if (temp.x > (MapWide + 3))
+        if (temp.x > MapWide)
         {
-            temp.x -= (MapWide + 2);
+            temp.x -= (MapWide*2);
         }//맵오른쪽으로 벗어나거나
-        if(temp.x < -3)
+        if(temp.x < -MapWide)
         {
-            temp.x += (MapWide + 2);
+            temp.x += (MapWide*2);
         }//왼쪽으로벗어나거나
-        if(temp.y > (MapHeight + 3))
+        if(temp.y > MapHeight)
         {
-            temp.x -= (MapHeight + 2);
+            temp.x -= (MapHeight*2);
         }//위로벗어나거나
-        if(temp.y < -3)
+        if(temp.y < -MapHeight)
         {
-            temp.y += (MapHeight + 2);
+            temp.y += (MapHeight*2);
         }//아래로 벗어나면 보정해준다
         transform.position = temp;
         print(temp.ToString());
+        temp1 = Global.IsGravitychanged;
 	}
 }

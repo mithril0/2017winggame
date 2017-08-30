@@ -19,7 +19,7 @@ public static class Global
     public static bool Activated;
     public static GravityState State = GravityState.S;
     public static int IsGravitychanged = 0;
-    public static GravityState LastState;
+    public static GravityState LastState = GravityState.S;
 }
 public enum GravityState
 {
@@ -40,13 +40,13 @@ public class Gravity : MonoBehaviour {
                 v = new Vector3(0, Speed, 0);
                 break;
             case GravityState.E:
-                v = new Vector3(-Speed, 0, 0);
+                v = new Vector3(Speed, 0, 0);
                 break;
             case GravityState.S:
                 v = new Vector3(0, -Speed, 0);
                 break;
             case GravityState.W:
-                v = new Vector3(Speed, 0, 0);
+                v = new Vector3(-Speed, 0, 0);
                 break;
             default:
                 v = new Vector3(0, 0, 0);

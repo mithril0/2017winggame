@@ -13,15 +13,6 @@ public class Moveplayer : MonoBehaviour {
 	public float StickRange;
 	public float WallRange;
 	public float MoveSpeed;
-    public float time()
-    {
-        if (activewire == true) {
-						return Time.deltaTime / 100;
-		}
-		else {
-						return Time.deltaTime;
-		}
-    }
 	Vector3 lookDirection;
     public Playerstates2 PS2 = Playerstates2.MovingW;
 	public PlayerStates PS = PlayerStates.N;
@@ -29,6 +20,10 @@ public class Moveplayer : MonoBehaviour {
 	public float wireRange;
 
     public GameObject debugSphere;
+    public void MovingN_On()
+    {
+        
+    }
 
     void Update()
     {
