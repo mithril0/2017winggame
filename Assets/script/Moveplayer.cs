@@ -23,6 +23,7 @@ public class Moveplayer : MonoBehaviour {
 		}
     }
 	Vector3 lookDirection;
+    public Playerstates2 PS2 = Playerstates2.MovingW;
 	public PlayerStates PS = PlayerStates.N;
 	public Vector3 movePos;
 	public float wireRange;
@@ -31,7 +32,7 @@ public class Moveplayer : MonoBehaviour {
 
     void Update()
     {
-        if (activewire==false) {
+        if ((PS2 == Playerstates2.MovingN)|| (PS2 == Playerstates2.MovingS)|| (PS2 == Playerstates2.MovingE)|| (PS2 == Playerstates2.MovingW)) {
             if (PS == PlayerStates.N) {
                 RaycastHit hit1;
                 Ray Ray1 = new Ray(transform.position, -Vector3.up);
@@ -47,11 +48,11 @@ public class Moveplayer : MonoBehaviour {
                         transform.position -= new Vector3(0, hoverError1, 0);
                     }
 
-                    if (Input.GetKey(KeyCode.A)) {
+                    if (PS2 == Playerstates2.MovingW) {
                         transform.Translate(Vector3.left * MoveSpeed * Time.deltaTime);
                         lookDirection = Vector3.left;
                     }
-                    if (Input.GetKey(KeyCode.D)) {
+                    if (PS2 == Playerstates2.MovingE) {
                         transform.Translate(Vector3.right * MoveSpeed * Time.deltaTime);
                         lookDirection = Vector3.right;
                     }
@@ -73,7 +74,8 @@ public class Moveplayer : MonoBehaviour {
                         }
                     }
 
-                } else {
+                }
+                else {
                     if (lookDirection == Vector3.left) {
                         transform.Rotate(0, 0, 90, Space.World);
                         transform.position += new Vector3(-1, -1.1f, 0);
@@ -102,11 +104,11 @@ public class Moveplayer : MonoBehaviour {
                         transform.position -= new Vector3(hoverError2, 0, 0);
                     }
 
-                    if (Input.GetKey(KeyCode.W)) {
+                    if (PS2 == Playerstates2.MovingN) {
                         transform.Translate(Vector3.left * MoveSpeed * Time.deltaTime);
                         lookDirection = Vector3.left;
                     }
-                    if (Input.GetKey(KeyCode.S)) {
+                    if (PS2 == Playerstates2.MovingS) {
                         transform.Translate(Vector3.right * MoveSpeed * Time.deltaTime);
                         lookDirection = Vector3.right;
                     }
@@ -157,11 +159,11 @@ public class Moveplayer : MonoBehaviour {
                         transform.position += new Vector3(0, hoverError3, 0);
                     }
 
-                    if (Input.GetKey(KeyCode.D)) {
+                    if (PS2 == Playerstates2.MovingE) {
                         transform.Translate(Vector3.left * MoveSpeed * Time.deltaTime);
                         lookDirection = Vector3.left;
                     }
-                    if (Input.GetKey(KeyCode.A)) {
+                    if (PS2 == Playerstates2.MovingW) {
                         transform.Translate(Vector3.right * MoveSpeed * Time.deltaTime);
                         lookDirection = Vector3.right;
                     }
@@ -212,11 +214,11 @@ public class Moveplayer : MonoBehaviour {
                         transform.position += new Vector3(hoverError4, 0, 0);
                     }
 
-                    if (Input.GetKey(KeyCode.S)) {
+                    if (PS2 == Playerstates2.MovingS) {
                         transform.Translate(Vector3.left * MoveSpeed * Time.deltaTime);
                         lookDirection = Vector3.left;
                     }
-                    if (Input.GetKey(KeyCode.W)) {
+                    if (PS2 == Playerstates2.MovingN) {
                         transform.Translate(Vector3.right * MoveSpeed * Time.deltaTime);
                         lookDirection = Vector3.right;
                     }
@@ -254,13 +256,13 @@ public class Moveplayer : MonoBehaviour {
         }
 
        
-        if (activewire==true){
+        if (PS2==Playerstates2.Casting){
             if (Input.GetMouseButtonDown(0)) {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit)) {
                     movePos = new Vector3(hit.point.x, hit.point.y, transform.position.z);
-                    debugSphere.transform.position = movePos;
+                    //debugSphere.transform.position = movePos;
                 }
                 Vector3 wireDirection = new Vector3(movePos.x - transform.position.x, movePos.y - transform.position.y, 0f);
 
@@ -269,11 +271,9 @@ public class Moveplayer : MonoBehaviour {
                 Vector3 A = new Vector3(transform.position.x, transform.position.y + 0.05f, transform.position.z);
                 Ray wire2 = new Ray(A, wireDirection);
                 RaycastHit wHit2;
-                Debug.DrawRay(transform.position, wireDirection * wireRange, Color.red);
+                //Debug.DrawRay(transform.position, wireDirection * wireRange, Color.red);
 
-                if ((Physics.Raycast(wire1, out wHit1, wireRange)) &&
-                    (Physics.Raycast(wire2, out wHit2, wireRange))) {
-
+                if ((Physics.Raycast(wire1, out wHit1, wireRange)) &&(Physics.Raycast(wire2, out wHit2, wireRange))) {
                     if (wHit1.point.x == wHit2.point.x) {
                         if ((wHit1.point.x - transform.position.x) > 0) {
                             if (PS == PlayerStates.N) {
@@ -302,7 +302,6 @@ public class Moveplayer : MonoBehaviour {
                             PS = PlayerStates.E;
                         }
                     }
-
                     if (wHit1.point.y == wHit2.point.y) {
                         if ((wHit1.point.y - transform.position.y) > 0) {
                             if (PS == PlayerStates.N) {
@@ -332,9 +331,8 @@ public class Moveplayer : MonoBehaviour {
                         }
                     }
                 }
-                activewire = false;
+                PS2 = Playerstates2.Teleporting;
             }
-            
         }
-        }
+    }
 }

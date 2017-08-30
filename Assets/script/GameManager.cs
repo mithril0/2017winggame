@@ -13,16 +13,22 @@ public class GameManager : MonoBehaviour {
     public GameObject GUI_pause;
     public GameObject GUI_clear;
     public GameObject GUI_die;
-
+    public GameObject GUI_play;
+    public GameObject Player;
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+    public void Casting()
+    {
+        Moveplayer Casting = (Moveplayer)Player.GetComponent("Moveplayer");
+        Casting.PS2 = Playerstates2.Casting;
+    }
     public void Clear()
     {
         GS = GameState.Clear;
@@ -37,5 +43,13 @@ public class GameManager : MonoBehaviour {
     {
         GS = GameState.Pause;
         GUI_pause.SetActive(true);
+    }
+    public void Play()
+    {
+        GS = GameState.Pause;
+        GUI_play.SetActive(true);
+        GUI_pause.SetActive(false);
+        GUI_die.SetActive(false);
+        GUI_clear.SetActive(false);
     }
 }
