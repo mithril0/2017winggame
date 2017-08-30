@@ -61,9 +61,6 @@
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
@@ -97,6 +94,7 @@
     <Compile Include="Assets\ZSmartTile\Components\ZST_SmartTile.cs" />
     <Compile Include="Assets\ZSmartTile\Components\ZST_SnapToGrid.cs" />
     <Compile Include="Assets\camerafollow.cs" />
+    <Compile Include="Assets\script\Door.cs" />
     <Compile Include="Assets\script\GameManager.cs" />
     <Compile Include="Assets\script\Gravity.cs" />
     <Compile Include="Assets\script\GravitySwitch.cs" />
@@ -105,7 +103,6 @@
     <Compile Include="Assets\script\WallCreatorBlock.cs" />
     <Compile Include="Assets\script\active.cs" />
     <Compile Include="Assets\script\cloneparticle.cs" />
-    <Compile Include="Assets\script\door.cs" />
     <Compile Include="Assets\script\goscene.cs" />
     <Compile Include="Assets\script\guiwire.cs" />
     <Compile Include="Assets\script\newparticle.cs" />

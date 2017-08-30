@@ -6,7 +6,7 @@ public class WallCreatorBlock : MonoBehaviour {
     public GameObject Wall;
     public bool Activated = false;
 
-    void OnTriggerStay(Collider c)
+    void OnTriggerEnter(Collider c)
     {    
         if (c.gameObject.tag == "Player")
         {

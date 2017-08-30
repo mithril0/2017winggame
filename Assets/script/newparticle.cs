@@ -98,7 +98,7 @@ public class newparticle : MonoBehaviour {
                 v = new Vector3(0, 0, 0);
                 break;
         }//v값설정
-        elapseTime += Time.deltaTime;
+        elapseTime += Global.time();
         while (elapseTime > timeunit) {
             elapseTime -= timeunit;
             movepixel++;

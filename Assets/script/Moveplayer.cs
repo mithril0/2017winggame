@@ -49,11 +49,11 @@ public class Moveplayer : MonoBehaviour {
                     }
 
                     if (PS2 == Playerstates2.MovingW) {
-                        transform.Translate(Vector3.left * MoveSpeed * Time.deltaTime);
+                        transform.Translate(Vector3.left * MoveSpeed * Global.time());
                         lookDirection = Vector3.left;
                     }
                     if (PS2 == Playerstates2.MovingE) {
-                        transform.Translate(Vector3.right * MoveSpeed * Time.deltaTime);
+                        transform.Translate(Vector3.right * MoveSpeed * Global.time());
                         lookDirection = Vector3.right;
                     }
 
@@ -105,11 +105,11 @@ public class Moveplayer : MonoBehaviour {
                     }
 
                     if (PS2 == Playerstates2.MovingN) {
-                        transform.Translate(Vector3.left * MoveSpeed * Time.deltaTime);
+                        transform.Translate(Vector3.left * MoveSpeed * Global.time());
                         lookDirection = Vector3.left;
                     }
                     if (PS2 == Playerstates2.MovingS) {
-                        transform.Translate(Vector3.right * MoveSpeed * Time.deltaTime);
+                        transform.Translate(Vector3.right * MoveSpeed * Global.time());
                         lookDirection = Vector3.right;
                     }
 
@@ -160,11 +160,11 @@ public class Moveplayer : MonoBehaviour {
                     }
 
                     if (PS2 == Playerstates2.MovingE) {
-                        transform.Translate(Vector3.left * MoveSpeed * Time.deltaTime);
+                        transform.Translate(Vector3.left * MoveSpeed * Global.time());
                         lookDirection = Vector3.left;
                     }
                     if (PS2 == Playerstates2.MovingW) {
-                        transform.Translate(Vector3.right * MoveSpeed * Time.deltaTime);
+                        transform.Translate(Vector3.right * MoveSpeed * Global.time());
                         lookDirection = Vector3.right;
                     }
 
@@ -215,11 +215,11 @@ public class Moveplayer : MonoBehaviour {
                     }
 
                     if (PS2 == Playerstates2.MovingS) {
-                        transform.Translate(Vector3.left * MoveSpeed * Time.deltaTime);
+                        transform.Translate(Vector3.left * MoveSpeed * Global.time());
                         lookDirection = Vector3.left;
                     }
                     if (PS2 == Playerstates2.MovingN) {
-                        transform.Translate(Vector3.right * MoveSpeed * Time.deltaTime);
+                        transform.Translate(Vector3.right * MoveSpeed * Global.time());
                         lookDirection = Vector3.right;
                     }
 

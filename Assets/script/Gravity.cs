@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public static class Global
 {
+    public static float acceltime=1;
+    public static float time()
+    {
+        return Time.deltaTime * acceltime;
+    }
     static float ptu(float pixel)// translate unit pixel to unit
     {
         return pixel * 0.01f;
@@ -15,7 +20,6 @@ public static class Global
     public static GravityState State = GravityState.S;
     public static int IsGravitychanged = 0;
     public static GravityState LastState;
-    public static float elapseTime;//시간의 경과에따라 elapseTime를 갱신해줄 static함수 필요
 }
 public enum GravityState
 {
