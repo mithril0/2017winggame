@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour {
             if (Input.GetKey(entry.Key) && transform.up != entry.Value && transform.up != -entry.Value)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, entry.Value, out hit, StickRange))
+                if (Physics.Raycast(transform.position, entry.Value, out hit, StickRange, 1 << 8))
                 {
                     //가려는 방향에 벽이 있으면 그 벽에 붙음
                     StickToWall(hit);
@@ -37,7 +37,7 @@ public class PlayerMove : MonoBehaviour {
 
         //플레이어의 발쪽으로 레이캐스트
         RaycastHit groundHit;
-        if (Physics.Raycast(transform.position, -transform.up, out groundHit, StickRange))
+        if (Physics.Raycast(transform.position, -transform.up, out groundHit, StickRange, 1 << 8))
         {
             StickToWall(groundHit);
         } else
@@ -46,11 +46,11 @@ public class PlayerMove : MonoBehaviour {
             RaycastHit rightHit;
             RaycastHit leftHit;
 
-            if (!Physics.Raycast(transform.position - transform.up * (transform.localScale.y / 2 + 0.2f), transform.right, out rightHit, StickRange))
+            if (!Physics.Raycast(transform.position - transform.up * (transform.localScale.y / 2 + 0.2f), transform.right, out rightHit, StickRange, 1 << 8))
             {
                 rightHit.distance = Mathf.Infinity;
             }
-            if (!Physics.Raycast(transform.position - transform.up * (transform.localScale.y / 2 + 0.2f), -transform.right, out leftHit, StickRange))
+            if (!Physics.Raycast(transform.position - transform.up * (transform.localScale.y / 2 + 0.2f), -transform.right, out leftHit, StickRange, 1 << 8))
             {
                 leftHit.distance = Mathf.Infinity;
             }
