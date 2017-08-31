@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour {
                 else
                 {
                     //이동
-                    transform.position = transform.position + entry.Value * Speed;
+                    transform.position = transform.position + entry.Value * Speed * Time.deltaTime;
                 }
             }
         }
