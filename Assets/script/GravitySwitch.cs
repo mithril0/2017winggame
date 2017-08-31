@@ -12,7 +12,7 @@ public class GravitySwitch : MonoBehaviour
     public bool u = false;
     public bool Active = true;
 
-    void OnTriggerStay(Collider c)
+    void OnTriggerEnter(Collider c)
     {
         print(c.gameObject);
 
@@ -20,6 +20,8 @@ public class GravitySwitch : MonoBehaviour
 
         if (c.gameObject.GetComponent("Gravity") != null && Active)
         {
+            Global.LastState = Global.State;
+            Global.IsGravitychanged = 1;
             Global.State = State;
             HoldingBlock = c.gameObject;
             ((Behaviour)HoldingBlock.GetComponent("Gravity")).enabled = false;
