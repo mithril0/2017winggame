@@ -89,6 +89,7 @@ public class PlayerMove : MonoBehaviour {
                     transform.position = transform.position + entry.Value * Speed * Time.deltaTime;
                 }
             }
+            
             if (_now_ani_time >= Ani_Speed)
             {
                 if (PS2 == Playerstates2.IdleCW)
@@ -166,7 +167,6 @@ public class PlayerMove : MonoBehaviour {
         if (hit.collider != null) {
             Vector3 normal = hit.normal;
             Vector3 o = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
             transform.eulerAngles = transform.eulerAngles + new Vector3(0,0, - transform.eulerAngles.z + Mathf.Rad2Deg * Mathf.Atan2(normal.y, normal.x)-90);
             transform.position = hit.point;
             transform.Translate(Vector3.up*transform.localScale.y/2);
