@@ -10,6 +10,7 @@ public class goscene : MonoBehaviour
     {
         SceneManager.LoadScene("menu");
     }
+
     public void gooption()
     {
         SceneManager.LoadScene("option");

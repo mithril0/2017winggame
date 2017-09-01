@@ -29,6 +29,12 @@ public enum GravityState
 public class Gravity : MonoBehaviour {
     
     public static float Speed = 2;
+
+	void Start(){
+		Global.State = GravityState.S;
+		Global.IsGravitychanged = 0;
+		Global.LastState = GravityState.S;
+	}
 	
 	// Update is called once per frame
 	void Update () {
