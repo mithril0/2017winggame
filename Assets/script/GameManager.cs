@@ -22,12 +22,6 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-    public void Casting()
-    {
-        Moveplayer Casting = (Moveplayer)Player.GetComponent("Moveplayer");
-        Casting.PS2 = Playerstates2.Casting;
     }
     public void Clear()
     {

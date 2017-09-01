@@ -94,21 +94,22 @@
     <Compile Include="Assets\ZSmartTile\Components\ZST_SmartTile.cs" />
     <Compile Include="Assets\ZSmartTile\Components\ZST_SnapToGrid.cs" />
     <Compile Include="Assets\camerafollow.cs" />
-    <Compile Include="Assets\script\Door.cs" />
     <Compile Include="Assets\script\FollowCamera.cs" />
     <Compile Include="Assets\script\GameManager.cs" />
     <Compile Include="Assets\script\Gravity.cs" />
     <Compile Include="Assets\script\GravitySwitch.cs" />
-    <Compile Include="Assets\script\Moveplayer.cs" />
     <Compile Include="Assets\script\PlayManager.cs" />
     <Compile Include="Assets\script\PlayerMove.cs" />
     <Compile Include="Assets\script\WallCreatorBlock.cs" />
     <Compile Include="Assets\script\active.cs" />
-    <Compile Include="Assets\script\cloneparticle.cs" />
+    <Compile Include="Assets\script\controlDoor.cs" />
     <Compile Include="Assets\script\goscene.cs" />
-    <Compile Include="Assets\script\guiwire.cs" />
     <Compile Include="Assets\script\newparticle.cs" />
     <Compile Include="Assets\script\stagebutton.cs" />
+    <Compile Include="Assets\script\미사용\Moveplayer.cs" />
+    <Compile Include="Assets\script\미사용\cloneparticle.cs" />
+    <Compile Include="Assets\script\미사용\guiwire.cs" />
+    <Compile Include="Assets\script\미사용\test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
