@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum Playerstates2
 {
-    MovingN,
-    MovingW,
-    MovingS,
-    MovingE,
+    MovingCCW,
+    MovingCW,
     Casting,
     Teleporting,
     Dead,
-    Stop,
-    Clear
+    IdleCW,
+    IdleCCW,
+    Clear,
+    Rotate
 }
 public class PlayManager : MonoBehaviour {
 

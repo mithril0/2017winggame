@@ -129,7 +129,6 @@ public class newparticle : MonoBehaviour {
         else
         {
             spriteRenderer.sprite = particleSprite[direction_to_number(Global.LastState), direction_to_number(Global.State), phase];
-            print(direction_to_number(Global.LastState).ToString()+ direction_to_number(Global.State).ToString()+phase.ToString());
         }
         //print("texture/" + Global.State.ToString() + Global.State.ToString() + phase.ToString());
         transform.position += (v * movepixel);
@@ -152,7 +151,6 @@ public class newparticle : MonoBehaviour {
             temp.y += (MapHeight*2);
         }//아래로 벗어나면 보정해준다
         transform.position = temp;
-        print(temp.ToString());
         temp1 = Global.IsGravitychanged;
 	}
 }

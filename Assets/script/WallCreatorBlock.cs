@@ -10,6 +10,7 @@ public class WallCreatorBlock : MonoBehaviour {
     {    
         if (c.gameObject.tag == "Player")
         {
+            print("난 완전해졌다");
             //활성화 애니메이션 출력
             if (Global.Activated == true)
             {
