@@ -5,7 +5,7 @@ public enum GameState
 {
     Play,
     Pause,
-    Die,
+    GameOver,
     Clear
 }
 public class GameManager : MonoBehaviour {
@@ -16,23 +16,36 @@ public class GameManager : MonoBehaviour {
     public GameObject GUI_play;
     public GameObject Player;
 	public float OriginTime;
+    public controlDoor Door;
+    public PlayerMove PM;
 	// Use this for initialization
 	void Start () {
-
-	}
+        GUI_play.SetActive(true);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (PM.PS2 == Playerstates2.DeadCW || PM.PS2 == Playerstates2.DeadCCW)
+        {
+            GameOver();
+        }
     }
     public void Clear()
     {
-        GS = GameState.Clear;
-        GUI_clear.SetActive(true);
+        if (Door.ClearActivated == true)
+        {
+            GS = GameState.Clear;
+            OriginTime = Time.timeScale;
+            Time.timeScale = 0f;
+            GUI_play.SetActive(false);
+            GUI_clear.SetActive(true);
+        }
     }
-    public void Die()
+    public void GameOver()
     {
-        GS = GameState.Die;
+        GS = GameState.GameOver;
+        OriginTime = Time.timeScale;
+        Time.timeScale = 0f;
         GUI_die.SetActive(true);
     }
     
@@ -40,15 +53,17 @@ public class GameManager : MonoBehaviour {
     {
         GS = GameState.Pause;
 		OriginTime = Time.timeScale;
-		Time.timeScale=0f;
+        Time.timeScale=0f;
+        GUI_play.SetActive(false);
         GUI_pause.SetActive(true);
     }
 
 	public void UnPause(){
 		GS = GameState.Play;
 		Time.timeScale = OriginTime;
-		GUI_pause.SetActive(false);
-	}
+        GUI_pause.SetActive(false);
+        GUI_play.SetActive(true);
+    }
 
 	public void Replay(){
 		Time.timeScale = 1f;

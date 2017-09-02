@@ -17,6 +17,7 @@ public class controlDoor : MonoBehaviour
     public float Ani_Speed;
     public float _now_ani_time;
     public int Ani_count = 0, i = 0;
+    public bool ClearActivated = false;
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -77,10 +78,7 @@ public class controlDoor : MonoBehaviour
     {
         if (c.gameObject.tag == "Player")
         {
-            if (Global.Activated == true)
-            {
-                //clear
-            }
+            ClearActivated = true; // GameManager에서 플레이어, 도어 컨트롤 타입 선언. 활성화값이 true여야만 GameManager에서 버튼 동작 가능.
         }
     }
     void OnTriggerExit(Collider c)
