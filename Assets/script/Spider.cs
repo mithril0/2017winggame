@@ -117,7 +117,7 @@ public class Spider : MonoBehaviour {
         RaycastHit forwardHit;
         RaycastHit groundHit;
         RaycastHit hit;
-        if ((Physics.Raycast(transform.position + (Direction * Scale), -transform.up, out forwardHit, StickRange, 1 << 8)!=true)|| (Physics.Raycast(transform.position, Direction, out hit, Scale, 1 << 8)))
+        if (((Physics.Raycast(transform.position, Direction, out hit, Scale, 1 << 8))))
         {
             print("장비를 정지합니다");
             if (SS == SpiderState.MovingCW&&Ani_Count==4)
@@ -129,10 +129,23 @@ public class Spider : MonoBehaviour {
             {
                 StopCCW_On();
             }
-        }//바닥이없거나 앞에벽이있으면 멈추고 반대로감
-        if((Physics.Raycast(transform.position + (Direction * Scale), -transform.up, out forwardHit, StickRange, 1 << 8) == true)&&((Physics.Raycast(transform.position, Direction, out hit, Scale, 1 << 8))!=true))
+        }
+        else if(Physics.Raycast(transform.position + (Direction * Scale), -transform.up, out forwardHit, StickRange, 1 << 8) != true){
+            print("낭떠러지");
+            if (SS == SpiderState.MovingCW && Ani_Count == 4)
+            {
+                print("방향변경");
+                StopCW_On();
+            }
+            else if (SS == SpiderState.MovingCCW && Ani_Count == 4)
+            {
+                StopCCW_On();
+            }
+            //바닥이없거나 앞에벽이있으면 멈추고 반대로감
+        }
+        else//if((Physics.Raycast(transform.position + (Direction * Scale), -transform.up, out forwardHit, StickRange, 1 << 8) == true)&&((Physics.Raycast(transform.position, Direction, out hit, Scale, 1 << 8))!=true))
         {
-            Physics.Raycast(transform.position, -transform.up, out groundHit, StickRange, 1 << 8);
+            Physics.Raycast(transform.position, transform.up, out groundHit, StickRange, 1 << 8);
             StickToWall(groundHit);
             transform.position = (transform.position + Direction * Speed * Time.deltaTime);
         } //그외의경우 바닥부착
